@@ -1,0 +1,57 @@
+
+   /* || RESET */
+*,
+::before,
+::after {
+   margin: 0;
+   padding: 0;
+}
+
+html {
+   font-size: 10px;
+   line-height: 1.5;
+}
+
+body {
+   -webkit-font-smoothing: antialiased;
+   min-height: 100vh;
+}
+
+img, picture, video, canvas, svg {
+   display: block;
+   max-width: 100%;
+}
+
+   /* This style could be applied to the universal selector(*) but it's here for clarity */
+input, button, textarea, select,
+p, h1, h2, h3, h4, h5, h6 {
+   font: inherit;                
+}
+
+ol[role="list"], ul[role="list"] {
+   list-style: none;
+   padding-inline: 0;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+   overflow-wrap: break-word;
+}
+
+p {
+   text-wrap: pretty;
+   max-width: 65ch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   text-wrap: balance;
+}
+
+#root, #__next {
+   isolation: isolate;
+}
+
+
+   /* || GENERAL STYLES */
+body {
+   font-size: clamp(1.4rem, calc(1.5vh + 1.5vw), 2.4rem);
+}
