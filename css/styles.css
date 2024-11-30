@@ -1,4 +1,30 @@
 
+@font-face {
+   font-family: "Roboto";
+   font-weight: 100;
+   src: url("../asset/fonts/roboto-thin-webfont.woff2") format("woff2"),
+        url("../asset/fonts/roboto-thin-webfont.woff") format("woff");
+   font-display: swap;
+}
+
+@font-face {
+   font-family: "Roboto";
+   font-weight: 400;
+   src: url("../asset/fonts/roboto-regular-webfont.woff2") format("woff2"),
+        url("../asset/fonts/roboto-regular-webfont.woff") format("woff");
+   font-display: swap;
+}
+
+@font-face {
+   font-family: "Roboto";
+   font-weight: 700;
+   src: url("../asset/fonts/roboto-bold-webfont.woff2") format("woff2"),
+        url("../asset/fonts/roboto-bold-webfont.woff") format("woff");
+   font-display: swap;
+}
+ 
+
+
    /* || RESET */
 *,
 ::before,
@@ -9,15 +35,14 @@
 
 html {
    font-size: 10px;
-   line-height: 1.5;
+   line-height: 1.3;
 }
 
 body {
    -webkit-font-smoothing: antialiased;
-   min-height: 100vh;
 }
 
-img, picture, video, canvas, svg {
+img {
    display: block;
    max-width: 100%;
 }
@@ -33,7 +58,7 @@ ol[role="list"], ul[role="list"] {
    padding-inline: 0;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p, h1, h2 {
    overflow-wrap: break-word;
 }
 
@@ -42,7 +67,7 @@ p {
    max-width: 65ch;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
    text-wrap: balance;
 }
 
@@ -52,6 +77,73 @@ h1, h2, h3, h4, h5, h6 {
 
 
    /* || GENERAL STYLES */
+html {
+   background-color: black;
+}
+
 body {
-   font-size: clamp(1.4rem, calc(1.5vh + 1.5vw), 2.4rem);
+   font-family: "Roboto", serif;
+   font-weight: 400;
+   font-size: 1.6rem;
+}
+
+.page {
+   display: flex;
+   margin: 0 17.5%;
+   background-color: white;
+}
+
+.page__image-container {
+   flex: 3 0 37.5%;
+   position: relative;
+   /* display: flex; */
+}
+
+.page__image {
+   max-height: 100vh;
+}
+
+.page__image-caption {
+   text-align: center;
+}
+
+.page__image-caption--top,
+.page__image-caption--bottom {
+   position: absolute;
+   left: 0;
+   right: 0;
+}
+
+.page__image-caption--top {
+   top: 10rem;
+   color: rgb(255, 255, 255);
+   background-color: rgba(0, 0, 0, 0.25);
+   font-size: 4rem;
+   font-weight: 700;
+   padding: 1rem 0;
+}
+
+.page__image-caption--bottom {
+   bottom: 1rem;
+   font-size: 0.9rem;
+   font-weight: 100;
+   color: rgba(255, 255, 255, 0.6);
+}
+
+.page__image-caption--bottom a:any-link {
+   color: rgba(255, 255, 255, 0.6);
+}
+
+.page__form {
+   flex: 5 0 62.5%;
+   padding: 0/*8rem*/ 3rem;
+}
+
+.form__title {
+   font-size: 2.4rem;
+   margin-bottom: 1.5rem;
+}
+
+.form__message:first-of-type {
+   margin-bottom: 1rem;
 }
