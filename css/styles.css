@@ -83,7 +83,7 @@ html {
 
 body {
    font-family: "Roboto", serif;
-   font-weight: 400;
+   font-weight: 700;
    font-size: 1.6rem;
 }
 
@@ -115,12 +115,20 @@ body {
 }
 
 .page__image-caption--top {
-   top: 10rem;
+   top: 8rem;
    color: rgb(255, 255, 255);
    background-color: rgba(0, 0, 0, 0.25);
    font-size: 4rem;
-   font-weight: 700;
+   font-weight: 100;
    padding: 1rem 0;
+}
+
+.page__image-caption--top img {
+   display: inline;
+   width: 1em;
+   height: 1em;
+   vertical-align: middle;
+   /* transform: rotate(45deg); */
 }
 
 .page__image-caption--bottom {
@@ -136,7 +144,21 @@ body {
 
 .page__form {
    flex: 5 0 62.5%;
-   padding: 0/*8rem*/ 3rem;
+}
+
+.form__top-section,
+.form__middle-section,
+.form__bottom-section {
+   padding: 5rem 3rem;
+}
+
+.form__top-section,
+.form__bottom-section {
+   background-color: rgba(255, 192, 203, 0.5);
+}
+
+.form__top-section {
+   padding-bottom: 2rem;
 }
 
 .form__title {
@@ -146,4 +168,59 @@ body {
 
 .form__message:first-of-type {
    margin-bottom: 1rem;
+}
+
+.form__middle-section {
+   font-weight: 400;
+   /* font-size: 1.4rem; */
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+   padding-top: 2rem;
+   padding-bottom: 2rem;
+   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5);
+}
+
+.form__subtitle {
+   font-weight: 700;
+}
+
+label:not(label:last-child) {
+   text-transform: uppercase;
+}
+
+.form__input-container :is(label, input),
+.form__select-container :is(label, input) {
+   display: block;
+   /* justify-self: flex-start; */
+}
+
+.form__input-fields--type {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+}
+
+.form__input-fields--type input {
+   margin-bottom: 1rem;
+}
+
+.form__input-fields--type label {
+   font-size: 1rem;
+}
+
+.form__input-fields--action {
+   margin-top: -2rem;
+}
+
+.form__select-container label {
+   font-size: 1rem;
+}
+
+.form__select-container select {
+   width: 100%;
+   margin-bottom: 1rem;
+}
+
+.form__bottom-section {
+   padding-top: 2rem;
 }
