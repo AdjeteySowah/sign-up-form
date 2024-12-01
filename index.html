@@ -14,7 +14,9 @@
       <figure class="page__image-container">
          <img src="./img/play-station.jpg" alt="A Playstation 5 and its controller" width="360" height="640" class="page__image">
          <figcaption class="page__image-caption">
-            <p class="page__image-caption--top">PlayVerse</p>
+            <p class="page__image-caption--top">
+               <img src="./img/playstation-controller.svg" alt="A playstation 5 controller"> <!--attribute owner-->
+               PlayVerse</p>
             <p class="page__image-caption--bottom">Photo by <a href="https://unsplash.com/@martinkatler?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank" rel="noopener noreferrer">Martin Katler</a> on <a href="https://unsplash.com/photos/black-and-silver-electronic-device-caNzzoxls8Q?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank" rel="noopener noreferrer">Unsplash</a></p>
          </figcaption>
       </figure>
@@ -27,14 +29,13 @@
                Ready to join an epic community of players? Whether you're here to dominate tournaments, discover new games, or make friends, this is your space to play.
             </p>
             <p class="form__message">
-               Sign up now to access exclusive content, leaderboards, and a whole world of gaming adventures. <br>
-               Your next great quest starts here!
+               Sign up now to access exclusive content, leaderboards, and a whole world of gaming adventures. Your next great quest starts here!
             </p>
          </div>
 
          <div class="form__middle-section">
             <h2 class="form__subtitle">Let's do this!</h2>
-            <div class="form__input-fields">
+            <div class="form__input-fields--type">
                <div class="form__input-container">
                   <label for="firstname">first name</label>
                   <input type="text" id="firstname" name="firstname">
@@ -59,6 +60,8 @@
                   <label for="password_confirmation">confirm password</label>
                   <input type="password" id="password_confirmation" name="password_confirmation">
                </div>
+            </div>
+            <div class="form__input-fields--action">
                <div class="form__select-container">
                   <label for="games">Favourite Game</label>
                   <select name="game" id="games">
