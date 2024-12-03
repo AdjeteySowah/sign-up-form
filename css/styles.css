@@ -9,17 +9,9 @@
 
 @font-face {
    font-family: "Roboto";
-   font-weight: 400;
-   src: url("../asset/fonts/roboto-regular-webfont.woff2") format("woff2"),
-        url("../asset/fonts/roboto-regular-webfont.woff") format("woff");
-   font-display: swap;
-}
-
-@font-face {
-   font-family: "Roboto";
-   font-weight: 700;
-   src: url("../asset/fonts/roboto-bold-webfont.woff2") format("woff2"),
-        url("../asset/fonts/roboto-bold-webfont.woff") format("woff");
+   font-weight: 500;
+   src: url("../asset/fonts/roboto-medium-webfont.woff2") format("woff2"),
+        url("../asset/fonts/roboto-medium-webfont.woff") format("woff");
    font-display: swap;
 }
  
@@ -48,8 +40,8 @@ img {
 }
 
    /* This style could be applied to the universal selector(*) but it's here for clarity */
-input, button, textarea, select,
-p, h1, h2, h3, h4, h5, h6 {
+input, button,
+p, h1, h2 {
    font: inherit;                
 }
 
@@ -78,19 +70,19 @@ h1, h2 {
 
    /* || GENERAL STYLES */
 html {
-   background-color: black;
+   background-color: rgb(0, 0, 0);
 }
 
 body {
    font-family: "Roboto", serif;
-   font-weight: 700;
+   font-weight: 500;
    font-size: 1.6rem;
 }
 
 .page {
    display: flex;
    margin: 0 17.5%;
-   background-color: white;
+   background-color: rgb(255, 255, 255);
 }
 
 .page__image-container {
@@ -128,7 +120,11 @@ body {
    width: 1em;
    height: 1em;
    vertical-align: middle;
-   /* transform: rotate(45deg); */
+   transform: rotate(45deg);
+}
+
+.page__image-caption--top span {
+   margin-left: -1rem;
 }
 
 .page__image-caption--bottom {
@@ -144,20 +140,17 @@ body {
 
 .page__form {
    flex: 5 0 62.5%;
+   background-color: rgba(161, 56, 128, 0.1);
 }
 
 .form__top-section,
 .form__middle-section,
 .form__bottom-section {
-   padding: 5rem 3rem;
-}
-
-.form__top-section,
-.form__bottom-section {
-   background-color: rgba(255, 192, 203, 0.5);
+   padding: 0 3rem;
 }
 
 .form__top-section {
+   padding-top: 5rem;
    padding-bottom: 2rem;
 }
 
@@ -171,8 +164,9 @@ body {
 }
 
 .form__middle-section {
-   font-weight: 400;
-   /* font-size: 1.4rem; */
+   font-weight: 500;
+   font-size: 1.4rem;
+   background-color: rgb(255, 255, 255);
    display: flex;
    flex-direction: column;
    gap: 2rem;
@@ -182,7 +176,8 @@ body {
 }
 
 .form__subtitle {
-   font-weight: 700;
+   font-weight: 500;
+   font-size: 1.6rem;
 }
 
 label:not(label:last-child) {
@@ -191,7 +186,6 @@ label:not(label:last-child) {
 
 .form__input-container :is(label, input) {
    display: block;
-   /* justify-self: flex-start; */
 }
 
 .form__input-fields--type {
@@ -205,8 +199,70 @@ label:not(label:last-child) {
 
 .form__input-fields--type input {
    margin-bottom: 1rem;
+   padding: 0.2rem 1rem;
+   border: 1px solid rgba(0,0,0,0.25);
+   border-radius: 0.4rem;
+}
+
+.form__input-fields--type input:focus {
+   border: none;
+   outline: 2px solid rgb(65, 105, 225);
+   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5);
+}
+
+.form__input-fields--action label {
+   font-size: 1.4rem;
+}
+
+.form__input-fields--action input {
+   accent-color: rgb(161, 56, 128);
 }
 
 .form__bottom-section {
+   font-size: 1.2rem;
    padding-top: 2rem;
+}
+
+.form__button {
+   background-color: rgb(161, 56, 128);
+   color: rgb(255, 255, 255);
+   border: none;
+   border-radius: 0.5rem;
+   padding: 0.8rem 3rem;
+   margin-bottom: 2rem;
+}
+
+.form__button:hover {
+   cursor: pointer;
+}
+
+.form__login-link:any-link {
+   color: rgb(161, 56, 128);
+   text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+   .page {
+      background-color: rgb(18, 18, 18);
+   }
+
+   .page__form {
+      /* background-color: rgba(161, 56, 128, 0.2); */
+      background-color: rgb(35, 35, 35);
+      color: rgb(240, 248, 255);
+   }
+
+   .form__middle-section {
+      background-color: rgb(51, 51, 51);
+      color: rgb(255, 255, 255);
+   }
+
+   .form__input-fields--type input {
+      background-color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
+   }
+
+   .form__input-fields--type label {
+      color: rgb(197, 186, 186);
+   } 
 }
