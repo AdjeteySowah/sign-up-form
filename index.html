@@ -15,8 +15,8 @@
          <img src="./img/play-station.jpg" alt="A Playstation 5 and its controller" width="360" height="640" class="page__image">
          <figcaption class="page__image-caption">
             <p class="page__image-caption--top">
-               <img src="./img/playstation-controller.svg" alt="A playstation 5 controller"> <!--attribute owner-->
-               PlayVerse</p>
+               <img src="./img/playstation-controller.svg" alt="A playstation 5 controller">
+               <span>PlayVerse</span></p>
             <p class="page__image-caption--bottom">Photo by <a href="https://unsplash.com/@martinkatler?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank" rel="noopener noreferrer">Martin Katler</a> on <a href="https://unsplash.com/photos/black-and-silver-electronic-device-caNzzoxls8Q?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank" rel="noopener noreferrer">Unsplash</a></p>
          </figcaption>
       </figure>
@@ -38,7 +38,7 @@
             <div class="form__input-fields--type">
                <div class="form__input-container">
                   <label for="firstname">first name</label>
-                  <input type="text" id="firstname" name="firstname">
+                  <input type="text" id="firstname" name="firstname" required>
                </div>
                <div class="form__input-container">
                   <label for="lastname">last name</label>
@@ -50,20 +50,20 @@
                </div>
                <div class="form__input-container">
                   <label for="email">email</label>
-                  <input type="email" id="email" name="email">
+                  <input type="email" id="email" name="email" required>
                </div>
                <div class="form__input-container">
                   <label for="password">password</label>
-                  <input type="password" id="password" name="password">
+                  <input type="password" id="password" name="password" required>
                </div>
                <div class="form__input-container">
                   <label for="password_confirmation">confirm password</label>
-                  <input type="password" id="password_confirmation" name="password_confirmation">
+                  <input type="password" id="password_confirmation" name="password_confirmation" required>
                </div>
             </div>
             <div class="form__input-fields--action">
                <div class="form__checkbox-container">
-                  <input type="checkbox" id="terms" name="read_terms">
+                  <input type="checkbox" id="terms" name="read_terms" required>
                   <label for="terms">I am 13 years of age or older and agree to the terms of the PlayVerse Subscriber Agreement and the Valve Privacy Policy.</label>
                </div>
             </div>
@@ -71,7 +71,7 @@
 
          <div class="form__bottom-section">
             <button type="submit" class="form__button">Create Account</button>
-            <p>Already have an account? <span class="form__login-link">Log in</span></p>
+            <p>Already have an account?<a href="#" class="form__login-link"> Log in</a></p>
          </div>
       </form>
    </div>
