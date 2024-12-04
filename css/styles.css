@@ -207,11 +207,80 @@ label:not(label:last-child) {
 .form__input-fields--type input:focus {
    border: none;
    outline: 2px solid rgb(65, 105, 225);
-   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5);
+   box-shadow: 0 5px 3px 0 rgba(0,0,0,0.5);
+}
+
+.form__input-fields--type input::placeholder {
+   color: rgba(128, 128, 128, 0.4);
+}
+
+.password_rules,
+.password_confirmation_rule {
+   margin-top: -0.5rem;
+   display: none;
+}
+
+.password_rules {
+   height: 1.6rem;
+   line-height: 1.6rem; /* Keeps the rules in a fixed position */
+   overflow: hidden;
+}
+
+.password_rules li {
+   list-style: none;
+   position: relative;
+   top: 0;
+   animation: slide 15s steps(5) infinite;
+}
+
+@keyframes slide {
+   100% {
+      top: -8rem; /* 1.6rem * 5(steps) */
+   }
+}
+
+.password_rules span,
+.password_confirmation_rule {
+  font-size: 1.2rem;
+  color: rgb(128, 128, 128);
+}
+
+.password_rules span {
+  display: block;
+  position: relative;
+}
+
+.password_rules span::after {
+   content: "";
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   background-color: rgb(255, 255, 255);
+   left: 0;
+   border-left: 2px solid rgba(0, 0, 0, 0.25);
+   animation: draft 3s steps(31) infinite;
+}
+
+@keyframes draft {
+   40%, 60% {
+      left: 68%;
+   }
+   
+   100% {
+      left: 0;
+   }
+}
+
+.password_confirmation_rule {
+   height: 1.6rem; /* Matches the fixed position for password_rules */
 }
 
 .form__input-fields--action label {
    font-size: 1.4rem;
+}
+
+.form__checkbox-container span {
+   color: rgba(0,0,0,0.6);
 }
 
 .form__input-fields--action input {
@@ -247,7 +316,6 @@ label:not(label:last-child) {
    }
 
    .page__form {
-      /* background-color: rgba(161, 56, 128, 0.2); */
       background-color: rgb(35, 35, 35);
       color: rgb(240, 248, 255);
    }
@@ -264,5 +332,14 @@ label:not(label:last-child) {
 
    .form__input-fields--type label {
       color: rgb(197, 186, 186);
-   } 
+   }
+
+   .password_rules span::after {
+      background-color: rgb(51, 51, 51);
+      border-left: 2px solid rgb(197, 186, 186);
+   }
+
+   .form__checkbox-container span {
+      color: rgb(197, 186, 186);
+   }
 }
