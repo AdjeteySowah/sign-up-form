@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="lightmode">
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
 <body>
    <div class="page page--no-scroll">
       <figure class="page__image-container">
-         <img src="./img/play-station.jpg" alt="A Playstation 5 and its controller" width="360" height="640" class="page__image">
+         <img src="./img/playstation.jpg" alt="A Playstation 5 and its controller" width="360" height="640" class="page__image">
          <figcaption class="page__image-caption">
             <p class="page__image-caption--top">
                <img src="./img/playstation-controller.svg" alt="A playstation 5 controller">
@@ -21,9 +21,13 @@
          </figcaption>
       </figure>
 
-
-      <form action="#" method="post" class="page__form">
+         <!-- The div with class form__top-section used to be inside the form element but had to be removed to prevent the tooltip- "Please fill out this field" from showing anytime the theme-switch button is clicked. The best thing to do is to rename every class under page__form--main -->
+      <div class="page__form--main">
          <div class="form__top-section">
+            <button class="form__theme-switch">
+               <img src="./img/dark-mode.svg" alt="a moon icon">
+               <img src="./img/light-mode.svg" alt="a sun icon">
+            </button>
             <h1 class="form__title">Level Up Your Gaming Experience!</h1>
             <p class="form__message">
                Ready to join an epic community of players? Whether you're here to dominate tournaments, discover new games, or make friends, this is your space to play.
@@ -32,56 +36,57 @@
                Sign up now to access exclusive content, leaderboards, and a whole world of gaming adventures. Your next great quest starts here!
             </p>
          </div>
-
-         <div class="form__middle-section">
-            <h2 class="form__subtitle">Let's do this!</h2>
-            <div class="form__input-fields--type">
-               <div class="form__input-container">
-                  <label for="firstname">first name</label>
-                  <input type="text" id="firstname" name="firstname" placeholder="Lionel" required>
+         <form action="#" method="post" class="page__form">
+            <div class="form__middle-section">
+               <h2 class="form__subtitle">Let's do this!</h2>
+               <div class="form__input-fields--type">
+                  <div class="form__input-container">
+                     <label for="firstname">first name</label>
+                     <input type="text" id="firstname" name="firstname" placeholder="Lionel" required>
+                  </div>
+                  <div class="form__input-container">
+                     <label for="lastname">last name</label>
+                     <input type="text" id="lastname" name="lastname" placeholder="Messi">
+                  </div>
+                  <div class="form__input-container">
+                     <label for="username">username</label>
+                     <input type="text" id="username" name="username" placeholder="CR7"> <!-- Firstname would be set as username if user leaves this field empty -->
+                  </div>
+                  <div class="form__input-container">
+                     <label for="email">email</label>
+                     <input type="email" id="email" name="email" placeholder="user@example.com" required>
+                  </div>
+                  <div class="form__input-container form__input-container--forPassword">
+                     <label for="password">password</label>
+                     <input type="password" id="password" name="password" minlength="8" maxlength="20" required>
+                     <ul class="password_rules">
+                        <li><span>At least 12 characters</span></li>
+                        <li><span>At least one lowercase letter</span></li>
+                        <li><span>At least one uppercase letter</span></li>
+                        <li><span>At least one number</span></li>
+                        <li><span>At least one special character</span></li>
+                     </ul>
+                  </div>
+                  <div class="form__input-container">
+                     <label for="password_confirmation">confirm password</label>
+                     <input type="password" id="password_confirmation" name="password_confirmation" minlength="8" maxlength="20" required>
+                     <p class="password_confirmation_rule">It must be the same as the first password</p>
+                  </div>
                </div>
-               <div class="form__input-container">
-                  <label for="lastname">last name</label>
-                  <input type="text" id="lastname" name="lastname" placeholder="Messi">
-               </div>
-               <div class="form__input-container">
-                  <label for="username">username</label>
-                  <input type="text" id="username" name="username" placeholder="CR7"> <!-- Firstname would be set as username if user leaves this field empty -->
-               </div>
-               <div class="form__input-container">
-                  <label for="email">email</label>
-                  <input type="email" id="email" name="email" placeholder="user@example.com" required>
-               </div>
-               <div class="form__input-container">
-                  <label for="password">password</label>
-                  <input type="password" id="password" name="password" required>
-                  <ul class="password_rules">
-                     <li><span>At least 12 characters</span></li>
-                     <li><span>At least one lowercase letter</span></li>
-                     <li><span>At least one uppercase letter</span></li>
-                     <li><span>At least one number</span></li>
-                     <li><span>At least one special character</span></li>
-                  </ul>
-               </div>
-               <div class="form__input-container">
-                  <label for="password_confirmation">confirm password</label>
-                  <input type="password" id="password_confirmation" name="password_confirmation" required>
-                  <p class="password_confirmation_rule">It must be the same as the first password</p>
+               <div class="form__input-fields--action">
+                  <div class="form__checkbox-container">
+                     <input type="checkbox" id="terms" name="read_terms" required>
+                     <label for="terms"><span>I am 13 years of age or older and agree to the terms of the</span> PlayVerse Subscriber Agreement <span>and the</span> Valve Privacy Policy.</label>
+                  </div>
                </div>
             </div>
-            <div class="form__input-fields--action">
-               <div class="form__checkbox-container">
-                  <input type="checkbox" id="terms" name="read_terms" required>
-                  <label for="terms"><span>I am 13 years of age or older and agree to the terms of the</span> PlayVerse Subscriber Agreement <span>and the</span> Valve Privacy Policy.</label>
-               </div>
-            </div>
-         </div>
 
-         <div class="form__bottom-section">
-            <button type="submit" class="form__button">Create Account</button>
-            <p>Already have an account?<a href="#" class="form__login-link"> Log in</a></p>
-         </div>
-      </form>
+            <div class="form__bottom-section">
+               <button type="submit" class="form__button">Create Account</button>
+               <p>Already have an account?<a href="#" class="form__login-link"> Log in</a></p>
+            </div>
+         </form>
+      </div>
    </div>
 
    <script src="./index.js" type="text/javascript"></script>
