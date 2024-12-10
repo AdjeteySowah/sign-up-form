@@ -53,8 +53,12 @@ let passwordInput = document.querySelector("#password");
 let passwordRule = document.querySelector(".password_rules");
 
 passwordInput.addEventListener("focus", () => {
-   ruleContainer.removeChild(rule);
-   ruleContainer.appendChild(passwordRule);
+   if (ruleContainer.contains(rule)) {
+      ruleContainer.removeChild(rule);
+   }
+   if (!ruleContainer.contains(passwordRule)) {
+      ruleContainer.appendChild(passwordRule);
+   }
    passwordRule.style.cssText = `visibility: visible;`;
 });
 
