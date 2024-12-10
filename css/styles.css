@@ -1,4 +1,4 @@
-
+   /* || FONTS HOSTING */
 @font-face {
    font-family: "Roboto";
    font-weight: 100;
@@ -13,6 +13,63 @@
    src: url("../asset/fonts/roboto-medium-webfont.woff2") format("woff2"),
         url("../asset/fonts/roboto-medium-webfont.woff") format("woff");
    font-display: swap;
+}
+
+
+
+      /* || CUSTOM PROPERTIES/VARIABLES */
+   /* light mode */
+:root.lightmode {
+   --html-bgcolor: rgb(0, 0, 0);
+   --page-bgcolor: rgb(255, 255, 255);
+   --themeSwitch-bgcolor: var(--page-bgcolor);
+   --topCaption-bgcolor: rgba(0, 0, 0, 0.25);
+   --topCaption-color: rgb(255, 255, 255);
+   --btmCaption-color: rgba(255, 255, 255, 0.5);
+   --form-bgcolor: rgba(161, 56, 128, 0.1);
+   --form-color: rgb(0, 0, 0);
+   --formMiddle-bgcolor: rgb(255, 255, 255);
+   --formMiddle-color: rgb(0, 0, 0);
+   --formInput-bgcolor: rgb(255, 255, 255);
+   --formInput-color: rgb(0, 0, 0);
+   --formLabel-color: rgb(0, 0, 0);
+   --boxShadow-color: rgba(0,0,0,0.5);
+   --inputOutline-color: rgb(65, 105, 225);
+   --validOutline-color: rgb(0, 255, 0);
+   --placeholder-color: rgba(128, 128, 128, 0.4);
+   --passwordRule-color: rgb(128, 128, 128);
+   --checkbox-color: rgb(161, 56, 128);
+   --checkboxLabel-color: var(--boxShadow-color);
+   --button-color: rgb(255, 255, 255);
+   --animeBordLeft-color: var(--passwordRule-color);
+   --anime-bgcolor: var(--formMiddle-bgcolor);
+}
+
+   /* dark mode */
+:root.darkmode {
+   --html-bgcolor: rgb(0, 0, 0);
+   --page-bgcolor: rgb(18, 18, 18);
+   --themeSwitch-bgcolor: var(--formMiddle-bgcolor);
+   --topCaption-bgcolor: rgba(0, 0, 0, 0.25);
+   --topCaption-color: rgb(255, 255, 255);
+   --btmCaption-color: rgba(255, 255, 255, 0.5);
+   --form-bgcolor: rgb(35, 35, 35);
+   --form-color: rgb(240, 248, 255);
+   --formMiddle-bgcolor: rgb(51, 51, 51);
+   --formMiddle-color: rgb(255, 255, 255);
+   --formInput-bgcolor: rgb(0, 0, 0);
+   --formInput-color: rgb(255, 255, 255);
+   --formLabel-color: rgb(197, 186, 186);
+   --boxShadow-color: rgba(0,0,0,0.5);
+   --inputOutline-color: rgb(65, 105, 225);
+   --validOutline-color: rgb(0, 255, 0);
+   --placeholder-color: rgba(128, 128, 128, 0.4);
+   --passwordRule-color: rgb(128, 128, 128);
+   --checkbox-color: rgb(161, 56, 128);
+   --checkboxLabel-color: var(--formLabel-color);
+   --button-color: rgb(255, 255, 255);
+   --animeBordLeft-color: var(--passwordRule-color);
+   --anime-bgcolor: var(--formMiddle-bgcolor);
 }
  
 
@@ -68,9 +125,10 @@ h1, h2 {
 }
 
 
+
    /* || GENERAL STYLES */
 html {
-   background-color: rgb(0, 0, 0);
+   background-color: var(--html-bgcolor);
 }
 
 body {
@@ -82,13 +140,12 @@ body {
 .page {
    display: flex;
    margin: 0 17.5%;
-   background-color: rgb(255, 255, 255);
+   background-color: var(--page-bgcolor);
 }
 
 .page__image-container {
    flex: 3 0 37.5%;
    position: relative;
-   /* display: flex; */
 }
 
 .page__image {
@@ -108,8 +165,8 @@ body {
 
 .page__image-caption--top {
    top: 8rem;
-   color: rgb(255, 255, 255);
-   background-color: rgba(0, 0, 0, 0.25);
+   color: var(--topCaption-color);
+   background-color: var(--topCaption-bgcolor);
    font-size: 4rem;
    font-weight: 100;
    padding: 1rem 0;
@@ -131,16 +188,17 @@ body {
    bottom: 1rem;
    font-size: 0.9rem;
    font-weight: 100;
-   color: rgba(255, 255, 255, 0.6);
+   color: var(--btmCaption-color);
 }
 
 .page__image-caption--bottom a:any-link {
-   color: rgba(255, 255, 255, 0.6);
+   color: var(--btmCaption-color);
 }
 
-.page__form {
+.page__form--main {
    flex: 5 0 62.5%;
-   background-color: rgba(161, 56, 128, 0.1);
+   background-color: var(--form-bgcolor);
+   color: var(--form-color);
 }
 
 .form__top-section,
@@ -152,6 +210,38 @@ body {
 .form__top-section {
    padding-top: 5rem;
    padding-bottom: 2rem;
+   position: relative;
+}
+
+.form__theme-switch {
+   width: 4rem;
+   height: 4rem;
+   border-radius: 50%;
+   border: none;
+   background-color: var(--themeSwitch-bgcolor);
+   padding: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   top: 1rem;
+   right: 3rem;
+}
+
+.form__top-section img {
+   display: inline;
+}
+
+.lightmode .form__theme-switch img:last-child {
+   display: none;
+}
+
+.darkmode .form__theme-switch img:last-child {
+   display: inline;
+}
+
+.darkmode .form__theme-switch img:first-child {
+   display: none;
 }
 
 .form__title {
@@ -166,13 +256,14 @@ body {
 .form__middle-section {
    font-weight: 500;
    font-size: 1.4rem;
-   background-color: rgb(255, 255, 255);
+   background-color: var(--formMiddle-bgcolor);
+   color: var(--formMiddle-color);
    display: flex;
    flex-direction: column;
    gap: 2rem;
    padding-top: 2rem;
    padding-bottom: 2rem;
-   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.5);
+   box-shadow: 0 5px 10px 0 var(--boxShadow-color);
 }
 
 .form__subtitle {
@@ -182,6 +273,10 @@ body {
 
 label:not(label:last-child) {
    text-transform: uppercase;
+}
+
+.form__input-container:nth-child(5) {
+   position: relative;
 }
 
 .form__input-container :is(label, input) {
@@ -195,29 +290,37 @@ label:not(label:last-child) {
 
 .form__input-fields--type label {
    font-size: 1rem;
+   color: var(--formLabel-color);
 }
 
 .form__input-fields--type input {
    margin-bottom: 1rem;
    padding: 0.2rem 1rem;
-   border: 1px solid rgba(0,0,0,0.25);
+   border: 1px solid var(--topCaption-bgcolor);
    border-radius: 0.4rem;
+   background-color: var(--formInput-bgcolor);
+   color: var(--formInput-color);
+   width: 80%;
+}
+
+.form__input-fields--type input[type="text"]:not(:placeholder-shown):valid {
+   outline-color: var(--validOutline-color);
 }
 
 .form__input-fields--type input:focus {
    border: none;
-   outline: 2px solid rgb(65, 105, 225);
-   box-shadow: 0 5px 3px 0 rgba(0,0,0,0.5);
+   outline: 2px solid var(--inputOutline-color);
+   box-shadow: 0 5px 3px 0 var(--boxShadow-color);
 }
 
 .form__input-fields--type input::placeholder {
-   color: rgba(128, 128, 128, 0.4);
+   color: var(--placeholder-color);
 }
 
 .password_rules,
 .password_confirmation_rule {
    margin-top: -0.5rem;
-   display: none;
+   visibility: hidden;
 }
 
 .password_rules {
@@ -242,7 +345,7 @@ label:not(label:last-child) {
 .password_rules span,
 .password_confirmation_rule {
   font-size: 1.2rem;
-  color: rgb(128, 128, 128);
+  color: var(--passwordRule-color);
 }
 
 .password_rules span {
@@ -255,15 +358,15 @@ label:not(label:last-child) {
    position: absolute;
    height: 100%;
    width: 100%;
-   background-color: rgb(255, 255, 255);
+   background-color: var(--anime-bgcolor);
    left: 0;
-   border-left: 2px solid rgba(0, 0, 0, 0.25);
-   animation: draft 3s steps(31) infinite;
+   border-left: 2px solid var(--animeBordLeft-color);
+   animation: textTyping 3s steps(31) infinite;
 }
 
-@keyframes draft {
+@keyframes textTyping {
    40%, 60% {
-      left: 68%;
+      left: 70%;
    }
    
    100% {
@@ -280,11 +383,11 @@ label:not(label:last-child) {
 }
 
 .form__checkbox-container span {
-   color: rgba(0,0,0,0.6);
+   color: var(--checkboxLabel-color);
 }
 
 .form__input-fields--action input {
-   accent-color: rgb(161, 56, 128);
+   accent-color: var(--checkbox-color);
 }
 
 .form__bottom-section {
@@ -293,8 +396,8 @@ label:not(label:last-child) {
 }
 
 .form__button {
-   background-color: rgb(161, 56, 128);
-   color: rgb(255, 255, 255);
+   background-color: var(--checkbox-color);
+   color: var(--button-color);
    border: none;
    border-radius: 0.5rem;
    padding: 0.8rem 3rem;
@@ -306,40 +409,6 @@ label:not(label:last-child) {
 }
 
 .form__login-link:any-link {
-   color: rgb(161, 56, 128);
+   color: var(--checkbox-color);
    text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-   .page {
-      background-color: rgb(18, 18, 18);
-   }
-
-   .page__form {
-      background-color: rgb(35, 35, 35);
-      color: rgb(240, 248, 255);
-   }
-
-   .form__middle-section {
-      background-color: rgb(51, 51, 51);
-      color: rgb(255, 255, 255);
-   }
-
-   .form__input-fields--type input {
-      background-color: rgb(0, 0, 0);
-      color: rgb(255, 255, 255);
-   }
-
-   .form__input-fields--type label {
-      color: rgb(197, 186, 186);
-   }
-
-   .password_rules span::after {
-      background-color: rgb(51, 51, 51);
-      border-left: 2px solid rgb(197, 186, 186);
-   }
-
-   .form__checkbox-container span {
-      color: rgb(197, 186, 186);
-   }
 }
