@@ -300,7 +300,6 @@ label:not(label:last-child) {
    border-radius: 0.4rem;
    background-color: var(--formInput-bgcolor);
    color: var(--formInput-color);
-   width: 80%;
 }
 
 .form__input-fields--type input[type="text"]:not(:placeholder-shown):valid {
@@ -322,9 +321,10 @@ label:not(label:last-child) {
    display: inline;
    position: absolute;
    top: 28%;
-   right: 22%;
+   right: 35%;
    width: 1.2em;
    height: 1.2em;
+   filter: invert(29%) sepia(83%) saturate(2747%) hue-rotate(212deg) brightness(95%) contrast(89%);
 }
 
 .password-invisible span:nth-of-type(2) {
@@ -384,7 +384,7 @@ label:not(label:last-child) {
 
 @keyframes textTyping {
    40%, 60% {
-      left: 70%;
+      left: 65%;
    }
    
    100% {
