@@ -33,7 +33,7 @@
    --formInput-bgcolor: rgb(255, 255, 255);
    --formInput-color: rgb(0, 0, 0);
    --formLabel-color: rgb(0, 0, 0);
-   --boxShadow-color: rgba(0,0,0,0.5);
+   --boxShadow-color: rgba(0, 0, 0, 0.5);
    --inputOutline-color: rgb(65, 105, 225);
    --validOutline-color: rgb(0, 255, 0);
    --placeholder-color: rgba(128, 128, 128, 0.4);
@@ -275,7 +275,7 @@ label:not(label:last-child) {
    text-transform: uppercase;
 }
 
-.form__input-container:nth-child(5) {
+.form__input-container:is(:nth-child(5), :nth-child(6)) {
    position: relative;
 }
 
@@ -315,6 +315,24 @@ label:not(label:last-child) {
 
 .form__input-fields--type input::placeholder {
    color: var(--placeholder-color);
+}
+
+.form__input-container--forPassword img,
+.form__input-container--forPasswordConf img {
+   display: inline;
+   position: absolute;
+   top: 28%;
+   right: 22%;
+   width: 1.2em;
+   height: 1.2em;
+}
+
+.password-invisible span:nth-of-type(2) {
+   display: none;
+}
+
+.password-visible span:nth-of-type(1) {
+   display: none;
 }
 
 .password_rules,
