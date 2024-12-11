@@ -4,7 +4,7 @@ let rootDoc = document.querySelector("html");
 let darkmode = localStorage.getItem("darkmode");
 let themeSwitchBtn = document.querySelector(".form__theme-switch");
 
-if (darkmode === "active") {
+if (darkmode === "active") {     // preserves the last color theme used by the user before closing the page
    enableDarkmode();
 }
 
@@ -135,6 +135,49 @@ psswrdConfirmationInput.addEventListener("input", () => {
 });
 
 
+   // || make password visible/invisible
+let visibilityStatus = {};
+let visibilityStatusIcons = document.querySelectorAll(".visibility-switch");
+
+function makePasswordVisible(event) {
+   let parentElement = event.target.closest(".password-invisible");
+   parentElement.classList.remove("password-invisible");
+   parentElement.classList.add("password-visible");
+
+   let siblingInputElement = parentElement.querySelector("input");
+   if (siblingInputElement.type === "password") {
+      siblingInputElement.type = "text";
+   }
+
+   visibilityStatus[siblingInputElement.id] = "visible";
+}
+
+function makePasswordInvisible(event) {
+   let parentElement = event.target.closest(".password-visible");
+   parentElement.classList.remove("password-visible");
+   parentElement.classList.add("password-invisible");
+
+   let siblingInputElement = parentElement.querySelector("input");
+   if (siblingInputElement.type === "text") {
+      siblingInputElement.type = "password";
+   }
+
+   visibilityStatus[siblingInputElement.id] = "invisible";
+}
+
+visibilityStatusIcons.forEach((icon) => {
+   icon.addEventListener("click", (event) => {
+      let inputId = event.target.closest(".password-invisible, .password-visible").querySelector("input").id;
+      
+      if (visibilityStatus[inputId] !== "visible") {
+         makePasswordVisible(event);
+      } else {
+         makePasswordInvisible(event);
+      }
+   });
+});  
+
+
    // || prevent form submission
 let form = document.querySelector(".page__form");
 
@@ -153,8 +196,6 @@ function preventFormSubmission(event) {
       event.preventDefault();
       ruleContainer.removeChild(passwordRule);
       ruleContainer.appendChild(rule);
-      // passwordRule.innerHTML = "<li>Invalid! Please follow the rules.</li>";
-      // passwordRule.style.cssText = `visibility: visible;`;
    }
 }
 
