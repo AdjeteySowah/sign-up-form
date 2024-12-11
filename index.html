@@ -50,15 +50,17 @@
                   </div>
                   <div class="form__input-container">
                      <label for="username">username</label>
-                     <input type="text" id="username" name="username" placeholder="CR7"> <!-- Firstname would be set as username if user leaves this field empty -->
+                     <input type="text" id="username" name="username" placeholder="CR7" autocomplete="username"> <!-- Firstname would be set as username if user leaves this field empty -->
                   </div>
                   <div class="form__input-container">
                      <label for="email">email</label>
                      <input type="email" id="email" name="email" placeholder="user@example.com" required>
                   </div>
-                  <div class="form__input-container form__input-container--forPassword">
+                  <div class="form__input-container form__input-container--forPassword password-invisible">
                      <label for="password">password</label>
-                     <input type="password" id="password" name="password" minlength="8" maxlength="20" required>
+                     <input type="password" id="password" name="password" minlength="12" maxlength="20"  autocomplete="new-password" required>
+                     <span><img src="./img/visibility.svg" alt="an opened eye" class="visibility-switch"></span>
+                     <span><img src="./img/visibility-off.svg" alt="a closed eye" class="visibility-switch"></span>
                      <ul class="password_rules">
                         <li><span>At least 12 characters</span></li>
                         <li><span>At least one lowercase letter</span></li>
@@ -67,9 +69,11 @@
                         <li><span>At least one special character</span></li>
                      </ul>
                   </div>
-                  <div class="form__input-container">
+                  <div class="form__input-container form__input-container--forPasswordConf password-invisible">
                      <label for="password_confirmation">confirm password</label>
-                     <input type="password" id="password_confirmation" name="password_confirmation" minlength="8" maxlength="20" required>
+                     <input type="password" id="password_confirmation" name="password_confirmation" minlength="12" maxlength="20"  autocomplete="new-password" required>
+                     <span><img src="./img/visibility.svg" alt="an opened eye" class="visibility-switch"></span>
+                     <span><img src="./img/visibility-off.svg" alt="a closed eye" class="visibility-switch"></span>
                      <p class="password_confirmation_rule">It must be the same as the first password</p>
                   </div>
                </div>
