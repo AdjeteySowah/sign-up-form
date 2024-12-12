@@ -1,11 +1,3 @@
-window.addEventListener("load", () => {
-   if (!localStorage.getItem('alertsShown')) {
-      alert(`Hi there! Thanks for checking out my sign-up form. Always remember to make the password invisible to view the password rules.`);
-
-      localStorage.setItem('alertsShown', 'true');
-   }
-});
-
 // || theme switching
 let rootDoc = document.querySelector("html");
 
