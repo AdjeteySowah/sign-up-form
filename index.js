@@ -61,8 +61,8 @@ let passwordInput = document.querySelector("#password");
 let passwordRule = document.querySelector(".password_rules");
 
 passwordInput.addEventListener("focus", () => {
-   if (ruleContainer.contains(rule)) {
-      ruleContainer.removeChild(rule);
+   if (ruleContainer.contains(passwordErrorMsg)) {
+      ruleContainer.removeChild(passwordErrorMsg);
    }
    if (!ruleContainer.contains(passwordRule)) {
       ruleContainer.appendChild(passwordRule);
@@ -192,20 +192,20 @@ visibilityStatusIcons.forEach((icon) => {
 let form = document.querySelector(".page__form");
 
 let ruleContainer = document.querySelector(".form__input-container--forPassword");
-let rule = document.createElement("p");
+let passwordErrorMsg = document.createElement("p");
 
 function preventFormSubmission(event) {
-   rule.textContent = "Invalid! Please follow the rules.";
-   rule.style.cssText = `font-size: 1.2rem;
-                         color: rgb(255, 0, 0);
-                         margin-top: -0.7rem;`;
+   passwordErrorMsg.textContent = "Invalid! Please follow the rules.";
+   passwordErrorMsg.style.cssText = `font-size: 1.2rem;
+                                     color: rgb(255, 0, 0);
+                                     margin-top: -0.7rem;`;
 
    if (passwordInput.value !== psswrdConfirmationInput.value) {
       event.preventDefault();
    } else if (globalIsGood || globalIsWeak) {
       event.preventDefault();
       ruleContainer.removeChild(passwordRule);
-      ruleContainer.appendChild(rule);
+      ruleContainer.appendChild(passwordErrorMsg);
    }
 }
 
