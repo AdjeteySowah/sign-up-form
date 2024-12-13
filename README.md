@@ -40,6 +40,11 @@ To try out the form:
 - **CSS**: Handles styling, including themes and visual feedback.  
 - **JavaScript**: Powers real-time validation, event handling, and local storage for theme persistence.
 
+## Credit
+- playstation-controller svg - [SVG Repo](https://www.svgrepo.com/)
+- All other SVGs - [Google Icons](https://fonts.google.com/icons)
+- Fonts used - [Google fonts](https://fonts.google.com/)
+- Fonts in woff and woff2 formats - [Font Squirrel](https://www.fontsquirrel.com/)
 ---
 
 Feel free to adapt it further based on the specifics of your project!
