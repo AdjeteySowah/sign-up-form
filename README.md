@@ -48,4 +48,5 @@ To try out the form:
 ---
 
 Feel free to adapt it further based on the specifics of your project!
+Note: It's not responsive. Designed for larger screens.
 [Live website](https://adjeteysowah.github.io/sign-up-form/)
